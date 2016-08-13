@@ -1,0 +1,33 @@
+﻿@model IEnumerable<tanvirattn.Models.dayName>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dayName1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.dayName1)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.dayId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.dayId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.dayId })
+        </td>
+    </tr>
+}
+
+</table>

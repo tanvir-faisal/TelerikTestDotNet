@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="attntfaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="dayName">
+    <Key>
+      <PropertyRef Name="dayId" />
+    </Key>
+    <Property Name="dayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dayName1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dayoff">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="empid" Type="Int32" Nullable="false" />
+    <Property Name="dayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="startDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="endDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="show" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="active" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="dayId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="designation">
+    <Key>
+      <PropertyRef Name="designationId" />
+    </Key>
+    <Property Name="designationId" Type="Int32" Nullable="false" />
+    <Property Name="designation1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="empid" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="emp">
+    <Key>
+      <PropertyRef Name="empid" />
+    </Key>
+    <Property Name="empid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DesignationId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="holiday">
+    <Key>
+      <PropertyRef Name="HolidayId" />
+    </Key>
+    <Property Name="HolidayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hoilidayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="startDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="endDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="show" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="activityId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="leave">
+    <Key>
+      <PropertyRef Name="leaveId" />
+    </Key>
+    <Property Name="leaveId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="leaveType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="empid" Type="Int32" Nullable="false" />
+    <Property Name="startDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="endDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="HolidayId" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="leaveTypeId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="leave_Type">
+    <Key>
+      <PropertyRef Name="leaveTypeId" />
+    </Key>
+    <Property Name="leaveTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="leaveType" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="personal_schedule">
+    <Key>
+      <PropertyRef Name="PersonalScheduleID" />
+    </Key>
+    <Property Name="PersonalScheduleID" Type="Int64" Nullable="false" />
+    <Property Name="empid" Type="Int32" Nullable="false" />
+    <Property Name="scheduleid" Type="Int32" Nullable="false" />
+    <Property Name="ScheduleStart" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SheduleEnd" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="activityId" Type="Int32" Nullable="false" />
+    <Property Name="show" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="schedule_info">
+    <Key>
+      <PropertyRef Name="scheduleId" />
+    </Key>
+    <Property Name="scheduleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ScheduleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="startTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="start_bf" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="start_af" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="end_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="end_bf" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="end_af" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="activie" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="show" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="signature">
+    <Key>
+      <PropertyRef Name="signatureid" />
+    </Key>
+    <Property Name="signatureid" Type="Int32" Nullable="false" />
+    <Property Name="empid" Type="Int32" Nullable="false" />
+    <Property Name="punch_time" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="attntfaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="dayNames" EntityType="Self.dayName" />
+    <EntitySet Name="Dayoffs" EntityType="Self.Dayoff" />
+    <EntitySet Name="designations" EntityType="Self.designation" />
+    <EntitySet Name="emps" EntityType="Self.emp" />
+    <EntitySet Name="holidays" EntityType="Self.holiday" />
+    <EntitySet Name="leaves" EntityType="Self.leave" />
+    <EntitySet Name="leave_Type" EntityType="Self.leave_Type" />
+    <EntitySet Name="personal_schedule" EntityType="Self.personal_schedule" />
+    <EntitySet Name="schedule_info" EntityType="Self.schedule_info" />
+    <EntitySet Name="signatures" EntityType="Self.signature" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+  </EntityContainer>
+</Schema>

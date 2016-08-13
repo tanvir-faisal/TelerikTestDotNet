@@ -1,0 +1,57 @@
+﻿@model IEnumerable<tanvirattn.Models.holiday>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.hoilidayName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.startDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.show)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.activityId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.hoilidayName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.startDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.endDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.show)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.activityId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.HolidayId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.HolidayId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.HolidayId })
+        </td>
+    </tr>
+}
+
+</table>

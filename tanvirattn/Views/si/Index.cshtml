@@ -1,0 +1,81 @@
+﻿@model IEnumerable<tanvirattn.Models.schedule_info>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ScheduleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.startTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.start_bf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.start_af)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.end_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.end_bf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.end_af)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.activie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.show)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScheduleName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.startTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.start_bf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.start_af)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.end_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.end_bf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.end_af)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.activie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.show)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.scheduleId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.scheduleId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.scheduleId })
+        </td>
+    </tr>
+}
+
+</table>

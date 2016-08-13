@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="attntfaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="dayName">
+    <Key>
+      <PropertyRef Name="dayId" />
+    </Key>
+    <Property Name="dayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dayName" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dayoff">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empid" Type="int" Nullable="false" />
+    <Property Name="dayName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="startDate" Type="date" Nullable="false" />
+    <Property Name="endDate" Type="date" Nullable="false" />
+    <Property Name="show" Type="char" MaxLength="1" />
+    <Property Name="active" Type="char" MaxLength="1" />
+    <Property Name="dayId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="designation">
+    <Key>
+      <PropertyRef Name="designationId" />
+    </Key>
+    <Property Name="designationId" Type="int" Nullable="false" />
+    <Property Name="designation" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="empid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="emp">
+    <Key>
+      <PropertyRef Name="empid" />
+    </Key>
+    <Property Name="empid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DesignationId" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="holiday">
+    <Key>
+      <PropertyRef Name="HolidayId" />
+    </Key>
+    <Property Name="HolidayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hoilidayName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="startDate" Type="date" Nullable="false" />
+    <Property Name="endDate" Type="date" Nullable="false" />
+    <Property Name="show" Type="char" MaxLength="1" />
+    <Property Name="activityId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="leave">
+    <Key>
+      <PropertyRef Name="leaveId" />
+    </Key>
+    <Property Name="leaveId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="leaveType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="empid" Type="int" Nullable="false" />
+    <Property Name="startDate" Type="date" Nullable="false" />
+    <Property Name="endDate" Type="date" Nullable="false" />
+    <Property Name="HolidayId" Type="int" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="leaveTypeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="leave_Type">
+    <Key>
+      <PropertyRef Name="leaveTypeId" />
+    </Key>
+    <Property Name="leaveTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="leaveType" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="personal_schedule">
+    <Key>
+      <PropertyRef Name="PersonalScheduleID" />
+    </Key>
+    <Property Name="PersonalScheduleID" Type="bigint" Nullable="false" />
+    <Property Name="empid" Type="int" Nullable="false" />
+    <Property Name="scheduleid" Type="int" Nullable="false" />
+    <Property Name="ScheduleStart" Type="datetime" Nullable="false" />
+    <Property Name="SheduleEnd" Type="datetime" Nullable="false" />
+    <Property Name="activityId" Type="int" Nullable="false" />
+    <Property Name="show" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="schedule_info">
+    <Key>
+      <PropertyRef Name="scheduleId" />
+    </Key>
+    <Property Name="scheduleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ScheduleName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="startTime" Type="datetime" Nullable="false" />
+    <Property Name="start_bf" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="start_af" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="end_time" Type="datetime" Nullable="false" />
+    <Property Name="end_bf" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="end_af" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="activie" Type="char" MaxLength="1" />
+    <Property Name="show" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="signature">
+    <Key>
+      <PropertyRef Name="signatureid" />
+    </Key>
+    <Property Name="signatureid" Type="int" Nullable="false" />
+    <Property Name="empid" Type="int" Nullable="false" />
+    <Property Name="punch_time" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityContainer Name="attntfaModelStoreContainer">
+    <EntitySet Name="dayName" EntityType="Self.dayName" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dayoff" EntityType="Self.Dayoff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="designation" EntityType="Self.designation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="emp" EntityType="Self.emp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="holiday" EntityType="Self.holiday" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="leave" EntityType="Self.leave" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="leave_Type" EntityType="Self.leave_Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="personal_schedule" EntityType="Self.personal_schedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="schedule_info" EntityType="Self.schedule_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="signature" EntityType="Self.signature" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

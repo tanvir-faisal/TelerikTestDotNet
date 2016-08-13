@@ -1,0 +1,63 @@
+﻿@model IEnumerable<tanvirattn.Models.personal_schedule>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.empid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.scheduleid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScheduleStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SheduleEnd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.activityId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.show)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.empid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.scheduleid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScheduleStart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SheduleEnd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.activityId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.show)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PersonalScheduleID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PersonalScheduleID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PersonalScheduleID })
+        </td>
+    </tr>
+}
+
+</table>

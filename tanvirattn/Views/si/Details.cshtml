@@ -1,0 +1,90 @@
+﻿@model tanvirattn.Models.schedule_info
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>schedule_info</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ScheduleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScheduleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.startTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.startTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.start_bf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.start_bf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.start_af)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.start_af)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.end_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.end_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.end_bf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.end_bf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.end_af)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.end_af)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.activie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.activie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.show)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.show)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.scheduleId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
